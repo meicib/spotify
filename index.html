@@ -3,34 +3,37 @@
     <head>
         <meta charset="utf-8">
         <title>My Spotify Profile</title>
-        <script src="script.js" type="module"></script>
+        
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
       <h1>Display your Spotify profile data</h1>
 
-      <section id="profile">
       <h2>Logged in as <span id="displayName"></span></h2>
       <span id="avatar"></span>
-      <ul>
+      <!-- <ul>
           <li>User ID: <span id="id"></span></li>
           <li>Email: <span id="email"></span></li>
           <li>Spotify URI: <a id="uri" href="#"></a></li>
           <li>Link: <a id="url" href="#"></a></li>
           <li>Profile Image: <span id="imgUrl"></span></li>
-      </ul>
+      </ul> -->
 
-      <select id="time-range-selector">
-        <option value="long_term">Long Term</option>
-        <option value="medium_term">Medium Term</option>
-        <option value="short_term">Short Term</option>
-      </select>
+      <div id="display-container">
+        <img src="assets/cassette.JPEG" id="cassette">
+        <ol class="select-child" id="tracks-container"></ol>
+      </div>
 
-      <ul id="tracks-container"></ul>
+      <div id="select-container">
+        <select class="select-child" id="time-range-selector">
+          <option value="long_term">Long Term</option>
+          <option value="medium_term">Medium Term</option>
+          <option value="short_term">Short Term</option>
+        </select>
+      </div>
 
-      <ul id="artists-container"></ul>
-    
-    </section>
-      
+      <ul class="select-child" id="artists-container"></ul>
+
+      <script src="script.js" type="module"></script>
     </body>
 </html>
