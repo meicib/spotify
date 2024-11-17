@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>My Spotify Profile</title>
+        <script src="script.js" type="module"></script>
+    </head>
+    <body>
+      <h1>Display your Spotify profile data</h1>
+
+      <section id="profile">
+      <h2>Logged in as <span id="displayName"></span></h2>
+      <span id="avatar"></span>
+      <ul>
+          <li>User ID: <span id="id"></span></li>
+          <li>Email: <span id="email"></span></li>
+          <li>Spotify URI: <a id="uri" href="#"></a></li>
+          <li>Link: <a id="url" href="#"></a></li>
+          <li>Profile Image: <span id="imgUrl"></span></li>
+      </ul>
+
+      <select id="time-range-selector">
+        <option value="long_term">Long Term</option>
+        <option value="medium_term">Medium Term</option>
+        <option value="short_term">Short Term</option>
+      </select>
+
+      <ul id="tracks-container"></ul>
+
+      <ul id="artists-container"></ul>
+    
+    </section>
+      
+    </body>
+</html>
