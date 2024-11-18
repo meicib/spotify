@@ -17,7 +17,7 @@ if (!code) {
 
         console.log(timeRange);
 
-        const limit = "15";
+        const limit = "10";
 
         const topTracks = await fetchWebApi(`v1/me/top/tracks?time_range=${timeRange}&limit=${limit}`, "GET", accessToken);
         displayTracks(topTracks);
@@ -117,7 +117,12 @@ function displayTracks(tracksJSON) {
     trackContainer.replaceChildren();
     for (let i = 0; i < tracksJSON.items.length; i++) {
         const track = document.createElement("li");
-        track.textContent = tracksJSON.items[i].name;
+        console.log(tracksJSON.items[i]);
+        let art = "";
+        for(let a = 0; a < tracksJSON.items[i].artists.length; a++) {
+            art = art.concat(tracksJSON.items[i].artists[a].name, " ");
+        }
+        track.textContent = tracksJSON.items[i].name + " - " + art;
         trackContainer.appendChild(track);
     }
 }

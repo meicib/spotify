@@ -19,14 +19,21 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "BlackCrayon";
+  src: url('fonts/BlackCrayon.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 :root {
   line-height: 1.5;
   font-weight: 400;
 
   color-scheme: light dark;
-  color: #213547;
-  background-color: #f9f9f9;
+  color: #e9f1eb;
+  background-color: #292a29;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -47,53 +54,65 @@ body {
   font-family: "AlteHaasGrotesk";
   font-weight: bold;
   font-size: 12px;
-  margin: 10px;
+  margin: 5px 10px;
   min-width: 320px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
 }
 
+h2 {
+  margin: 0px;
+}
+
 img {
-  width: 52%;
+  width: 100%;
   height: auto;
-}
-
-#display-container {
-  width: 50vw;
-  height: auto;
-  display: flex;
-  position: relative;
-}
-
-#tracks-container {
-  margin: 5px;
-  position: relative;
-  text-align: right;
-  list-style-position: inside;
-  width: 18%;
-  top: 0px;
-  right: 185px;
-}
-
-#select-container {
-  display: flex;
-  flex-direction: column;
 }
 
 select {
+  font: inherit;
+  font-size: 15px;
   height: 30px;
 }
 
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+#title {
+  font-family: "LEDLIGHT";
+  font-size: 50px;
+  margin: inherit;
+  color: #f6743f;
+  text-shadow: 0 0 30px #f6743f;
+}
+
+#bigger-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  margin: 0px 20px;
+  gap: 20px;
+}
+
+#display-container {
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#name {
+  position: relative;
+  bottom: 90%;
+  left: 20%;
+  font-family: "BlackCrayon";
+  font-size: 270%;
+  color: #393d39;
+}
+
+#tracks-container {
+  position: relative;
+  bottom: 27.7%;
+  right: 0.5%;
+  color: #393d39;
+  font-size: 95%;
+  line-height: 154%;
 }

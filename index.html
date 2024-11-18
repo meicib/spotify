@@ -3,13 +3,10 @@
     <head>
         <meta charset="utf-8">
         <title>My Spotify Profile</title>
-        
         <link rel="stylesheet" href="style.css">
     </head>
     <body>
-      <h1>Display your Spotify profile data</h1>
-
-      <h2>Logged in as <span id="displayName"></span></h2>
+      <h1 id="title">SPOTLIGHT</h1>
       <span id="avatar"></span>
       <!-- <ul>
           <li>User ID: <span id="id"></span></li>
@@ -18,21 +15,24 @@
           <li>Link: <a id="url" href="#"></a></li>
           <li>Profile Image: <span id="imgUrl"></span></li>
       </ul> -->
-
-      <div id="display-container">
-        <img src="assets/cassette.JPEG" id="cassette">
-        <ol class="select-child" id="tracks-container"></ol>
+      <div id="bigger-container">
+        <div id="display-container">
+          <img src="assets/cassette.png" id="cassette">
+          <img src="assets/cassette-label.jpg" id="cassette">
+          <ol id="tracks-container"></ol>
+          <h2 id="name"><span id="displayName"></span></h2>
+        </div>
+  
+        <div id="select-container">
+          <select id="time-range-selector">
+            <option value="long_term">Long Term</option>
+            <option value="medium_term">Medium Term</option>
+            <option value="short_term">Short Term</option>
+          </select>
+        </div>
       </div>
 
-      <div id="select-container">
-        <select class="select-child" id="time-range-selector">
-          <option value="long_term">Long Term</option>
-          <option value="medium_term">Medium Term</option>
-          <option value="short_term">Short Term</option>
-        </select>
-      </div>
-
-      <ul class="select-child" id="artists-container"></ul>
+      <ul id="artists-container"></ul>
 
       <script src="script.js" type="module"></script>
     </body>
