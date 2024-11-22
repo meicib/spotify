@@ -8,31 +8,33 @@
     <body>
       <h1 id="title">SPOTLIGHT</h1>
       <span id="avatar"></span>
-      <!-- <ul>
-          <li>User ID: <span id="id"></span></li>
-          <li>Email: <span id="email"></span></li>
-          <li>Spotify URI: <a id="uri" href="#"></a></li>
-          <li>Link: <a id="url" href="#"></a></li>
-          <li>Profile Image: <span id="imgUrl"></span></li>
-      </ul> -->
+      
       <div id="bigger-container">
         <div id="display-container">
           <img src="assets/cassette.png" id="cassette">
           <img src="assets/cassette-label.jpg" id="cassette">
-          <ol id="tracks-container"></ol>
+          <ol id="tracks-container" class="results-container"></ol>
+          <ol id="artists-container" class="results-container"></ol>
           <h2 id="name"><span id="displayName"></span></h2>
         </div>
   
+        
         <div id="select-container">
-          <select id="time-range-selector">
-            <option value="long_term">Long Term</option>
-            <option value="medium_term">Medium Term</option>
-            <option value="short_term">Short Term</option>
+          <p>Metric:</p>
+          <select id="type-selector">
+            <option value="tracks">Tracks</option>
+            <option value="artists">Artists</option>
           </select>
+
+          <div id="button-container">
+            <button class="time-range-selector" value="long_term">Long Term</button>
+            <button class="time-range-selector" value="medium_term">Medium Term</button>
+            <button class="time-range-selector" value="short_term">Short Term</button>
+          </div>
+
+          <img id="hyrax" src="assets/hyrax.webp">
         </div>
       </div>
-
-      <ul id="artists-container"></ul>
 
       <script src="script.js" type="module"></script>
     </body>

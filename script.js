@@ -11,21 +11,48 @@ if (!code) {
 
 
     let timeRange = "medium_term";
-    const timeRangeSelector = document.getElementById("time-range-selector");
-    timeRangeSelector.addEventListener("change", async () => {
-        timeRange = timeRangeSelector.value;
+    let typeSelect = "tracks";
+    
+    const hyrax = document.getElementById("hyrax");
+    const timeRangeButtons = document.querySelectorAll('.time-range-selector');
+    const typeSelector = document.getElementById("type-selector");
 
+    async function display() {
+        console.log("in display");
+    
+        typeSelect = typeSelector.value;
+    
         console.log(timeRange);
-
+        console.log(typeSelect);
+    
+    
         const limit = "10";
+    
+        console.log(`v1/me/top/${typeSelect}?time_range=${timeRange}&limit=${limit}`)
+    
+        const topDisplay = await fetchWebApi(`v1/me/top/${typeSelect}?time_range=${timeRange}&limit=${limit}`, "GET", accessToken);
+        
+        if (typeSelect == "tracks") {
+            displayTracks(topDisplay);
+        } else {
+            displayArtists(topDisplay)
+        }
+    }
 
-        const topTracks = await fetchWebApi(`v1/me/top/tracks?time_range=${timeRange}&limit=${limit}`, "GET", accessToken);
-        displayTracks(topTracks);
+    timeRangeButtons.forEach(function(btn) {
+        btn.addEventListener('click', display);
+        btn.addEventListener('click', function() {
+            timeRange = btn.value;
+        });
+    });
 
-        const topArtists = await fetchWebApi(`v1/me/top/artists?time_range=${timeRange}&limit=${limit}`, "GET", accessToken);
-        displayArtists(topArtists);
+    typeSelector.addEventListener("change", display);
+
+    hyrax.addEventListener("click", function() {
+        window.open('https://www.linkedin.com/in/amelie-cibulka/');
     });
 }
+
 
 export async function redirectToAuthCodeFlow(clientId) {
     const verifier = generateCodeVerifier(128);
@@ -114,7 +141,7 @@ async function fetchWebApi(endpoint, method, token, body) {
 
 function displayTracks(tracksJSON) {
     const trackContainer = document.getElementById("tracks-container");
-    trackContainer.replaceChildren();
+    removePrevious();
     for (let i = 0; i < tracksJSON.items.length; i++) {
         const track = document.createElement("li");
         console.log(tracksJSON.items[i]);
@@ -129,10 +156,18 @@ function displayTracks(tracksJSON) {
 
 function displayArtists(artistsJSON) {
     const artistContainer = document.getElementById("artists-container");
-    artistContainer.replaceChildren();
+    removePrevious();
     for (let i = 0; i < artistsJSON.items.length; i++) {
         const artist = document.createElement("li");
         artist.textContent = artistsJSON.items[i].name;
         artistContainer.appendChild(artist);
     }
+}
+
+function removePrevious() {
+    const trackContainer = document.getElementById("tracks-container");
+    trackContainer.replaceChildren();
+
+    const artistContainer = document.getElementById("artists-container");
+    artistContainer.replaceChildren();
 }
