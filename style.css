@@ -26,6 +26,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "JustMarker";
+  src: url('fonts/JustMarker.ttf');
+  font-weight: normal;
+  font-style: normal;
+}
+
 
 :root {
   line-height: 1.5;
@@ -100,10 +107,10 @@ select {
 }
 
 #name {
+  font-family: "JustMarker";
   position: relative;
   bottom: 90%;
   left: 20%;
-  font-family: "BlackCrayon";
   font-size: 270%;
   color: #393d39;
 }
