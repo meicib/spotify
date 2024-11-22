@@ -40,10 +40,10 @@ if (!code) {
     }
 
     timeRangeButtons.forEach(function(btn) {
-        btn.addEventListener('click', display);
         btn.addEventListener('click', function() {
             timeRange = btn.value;
         });
+        btn.addEventListener('click', display);
     });
 
     typeSelector.addEventListener("change", display);
