@@ -23,6 +23,13 @@ if (!code) {
     const biggerContainer = document.getElementById("bigger-container");
     const titlePNG = document.getElementById("title");
 
+    // Kim
+    const kimkasploosh = document.getElementById("kimkasploosh");
+    let keySequence = [];
+    const password_down = 'cal';
+    const password_up = 'CAL';
+
+
     async function display() {
         console.log("in display");
     
@@ -72,6 +79,20 @@ if (!code) {
         biggerContainer.style.opacity = '1.0';
         titlePNG.style.opacity = '1.0';
     }
+
+    kimkasploosh.addEventListener("click", function() {
+        window.open("https://keemothy.github.io/cubstart/index.html");
+    });
+
+
+    document.addEventListener('keydown', function(event) {
+        keySequence.push(event.key);
+    
+        if (keySequence.join('').includes(password_down) || keySequence.join('').includes(password_up)) {
+            window.open("assets/mcdonalds.png");
+            keySequence = [];
+        }
+    });
 }
 
 

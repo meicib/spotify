@@ -183,3 +183,12 @@ p {
   height: auto;
   flex-wrap: wrap;
 }
+
+#kimkasploosh {
+  display: flex;
+
+  position: relative;
+  width: 75px;
+  height: auto;
+  flex-wrap: wrap;
+}
