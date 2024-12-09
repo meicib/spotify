@@ -173,3 +173,13 @@ p {
   width: 50px;
   height: auto;
 }
+
+#chrisSecret {
+  display: flex;
+
+  opacity: 0.0;
+  position: relative;
+  width: 50px;
+  height: auto;
+  flex-wrap: wrap;
+}

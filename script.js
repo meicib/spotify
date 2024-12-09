@@ -17,6 +17,12 @@ if (!code) {
     const timeRangeButtons = document.querySelectorAll('.time-range-selector');
     const typeSelector = document.getElementById("type-selector");
 
+    // Chris' Secret
+    const chrisSecret = document.getElementById("chrisSecret");
+    var body = document.getElementsByTagName('body')[0];
+    const biggerContainer = document.getElementById("bigger-container");
+    const titlePNG = document.getElementById("title");
+
     async function display() {
         console.log("in display");
     
@@ -51,6 +57,21 @@ if (!code) {
     hyrax.addEventListener("click", function() {
         window.open('https://www.linkedin.com/in/amelie-cibulka/');
     });
+
+    chrisSecret.onmouseover = function() {
+        body.style.backgroundImage = 'url(assets/mm.webp)';
+
+        biggerContainer.style.opacity = '0.0';
+        titlePNG.style.opacity = '0.0';
+        
+    }
+
+    chrisSecret.onmouseout = function() {
+        body.style.backgroundImage = 'none';
+
+        biggerContainer.style.opacity = '1.0';
+        titlePNG.style.opacity = '1.0';
+    }
 }
 
 
