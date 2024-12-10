@@ -2,13 +2,31 @@ const clientId = "715ff8c50ac249958a47d69e150e620c";
 const params = new URLSearchParams(window.location.search);
 const code = params.get("code");
 
-if (!code) {
-    redirectToAuthCodeFlow(clientId);
-} else {
-    const accessToken = await getAccessToken(clientId, code);
-    const profile = await fetchWebApi("v1/me", "GET", accessToken);
-    populateUI(profile);
+document.getElementById("login").addEventListener("click", async function() {
+    if (!code) {
+        redirectToAuthCodeFlow(clientId);
+    } else {
+        proceedAfterLogin(clientId, code);
+    }
+});
 
+async function proceedAfterLogin(clientId, code) {
+    const accessToken = await getAccessToken(clientId, code);
+    displayEverything(accessToken);
+}
+
+if (code) {
+    proceedAfterLogin(clientId, code);
+}
+
+async function displayEverything(accessToken) {
+    document.getElementById("start-page").style.display = "none";
+    console.log("remove login page")
+    document.getElementById("main-page").style.display = "flex";
+    console.log("display main page")
+
+    const profile = await fetchWebApi("v1/me", "GET", accessToken);
+    document.getElementById("displayName").innerText = profile.display_name;
 
     let timeRange = "medium_term";
     let typeSelect = "tracks";
@@ -70,7 +88,6 @@ if (!code) {
 
         biggerContainer.style.opacity = '0.0';
         titlePNG.style.opacity = '0.0';
-        
     }
 
     chrisSecret.onmouseout = function() {
@@ -94,7 +111,6 @@ if (!code) {
         }
     });
 }
-
 
 export async function redirectToAuthCodeFlow(clientId) {
     const verifier = generateCodeVerifier(128);
@@ -153,22 +169,6 @@ export async function getAccessToken(clientId, code) {
     return access_token;
 }
 
-
-function populateUI(profile) {
-    document.getElementById("displayName").innerText = profile.display_name;
-    // if (profile.images[0]) {
-    //     const profileImage = new Image(200, 200);
-    //     profileImage.src = profile.images[0].url;
-    //     document.getElementById("avatar").appendChild(profileImage);
-    //     document.getElementById("imgUrl").innerText = profile.images[0].url;
-    // }
-    // document.getElementById("id").innerText = profile.id;
-    // document.getElementById("email").innerText = profile.email;
-    // document.getElementById("uri").innerText = profile.uri;
-    // document.getElementById("uri").setAttribute("href", profile.external_urls.spotify);
-    // document.getElementById("url").innerText = profile.href;
-    // document.getElementById("url").setAttribute("href", profile.href);
-}
 
 async function fetchWebApi(endpoint, method, token, body) {
   const res = await fetch(`https://api.spotify.com/${endpoint}`, {

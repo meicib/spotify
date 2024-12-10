@@ -7,35 +7,43 @@
     </head>
     <body>
       <h1 id="title">SPOTLIGHT</h1>
-      <span id="avatar"></span>
-      
-      <div id="bigger-container">
-        <div id="display-container">
-          <img src="assets/cassette.png" id="cassette">
-          <img src="assets/cassette-label.jpg" id="cassette">
-          <ol id="tracks-container" class="results-container"></ol>
-          <ol id="artists-container" class="results-container"></ol>
-          <h2 id="name"><span id="displayName"></span></h2>
-        </div>
-  
+      <div id="start-page" style="display: block">
+        <button id="login">login with spotify</button>
+        <h3>SPOTLIGHT is still in demo mode.</h3>
+        <p>click <a href="https://forms.gle/Re5fv2Z4h18XLgsx7" target="_blank">here</a> to add your email to the list of approved users.</p>
+      </div>
+
+      <div id="main-page" style="display: none">
+        <span id="avatar"></span>
         
-        <div id="select-container">
-          <p>Metric:</p>
-          <select id="type-selector">
-            <option value="tracks">Tracks</option>
-            <option value="artists">Artists</option>
-          </select>
-
-          <div id="button-container">
-            <button class="time-range-selector" value="long_term">Long Term</button>
-            <button class="time-range-selector" value="medium_term">Medium Term</button>
-            <button class="time-range-selector" value="short_term">Short Term</button>
+        <div id="bigger-container">
+          <div id="display-container">
+            <img src="assets/cassette.png" id="cassette">
+            <img src="assets/cassette-label.jpg" id="cassette">
+            <ol id="tracks-container" class="results-container"></ol>
+            <ol id="artists-container" class="results-container"></ol>
+            <h2 id="name"><span id="displayName"></span></h2>
           </div>
-
-          <img id="hyrax" src="assets/hyrax.webp">
-          <img id="chrisSecret" src="assets/fubroly.png">
-          <img id="kimkasploosh" src="assets/cap.png">
+    
           
+          <div id="select-container">
+            <p>Metric:</p>
+            <select id="type-selector">
+              <option value="tracks">Tracks</option>
+              <option value="artists">Artists</option>
+            </select>
+  
+            <div id="button-container">
+              <button class="time-range-selector" value="long_term">Long Term</button>
+              <button class="time-range-selector" value="medium_term">Medium Term</button>
+              <button class="time-range-selector" value="short_term">Short Term</button>
+            </div>
+  
+            <img id="hyrax" src="assets/hyrax.webp">
+            <img id="chrisSecret" src="assets/fubroly.png">
+            <img id="kimkasploosh" src="assets/cap.png">
+            
+          </div>
         </div>
       </div>
 

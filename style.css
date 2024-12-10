@@ -49,8 +49,7 @@
 }
 
 a {
-  font-weight: 500;
-  color: #646cff;
+  color: #f6743f;
   text-decoration: inherit;
 }
 a:hover {
@@ -191,4 +190,10 @@ p {
   width: 75px;
   height: auto;
   flex-wrap: wrap;
+}
+
+#start-page {
+  position: absolute;
+  top: 16%;
+  left: 50px;
 }
