@@ -112,6 +112,7 @@ p {
   margin: inherit;
   color: #f6743f;
   text-shadow: 0 0 30px #f6743f;
+  text-align: center;
 }
 
 #bigger-container {
@@ -120,6 +121,7 @@ p {
   justify-content: left;
   margin: 10px 20px;
   gap: 20px;
+  justify-content: center;
 }
 
 #display-container {
@@ -127,6 +129,8 @@ p {
   display: flex;
   flex-direction: column;
   gap: 10px;
+
+
 }
 
 #name {
@@ -142,6 +146,7 @@ p {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  
 }
 
 #button-container {
@@ -185,7 +190,6 @@ p {
 
 #kimkasploosh {
   display: flex;
-
   position: relative;
   width: 75px;
   height: auto;
@@ -193,7 +197,7 @@ p {
 }
 
 #start-page {
-  position: absolute;
   top: 16%;
   left: 50px;
+  text-align: center;
 }
